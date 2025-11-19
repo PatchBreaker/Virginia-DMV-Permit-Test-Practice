@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virginia DMV Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <a href="#" class="logo" id="logo-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+                </svg>
+                VA DMV Practice
+            </a>
+            <button id="home-btn" class="back-btn hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                </svg>
+                Back to Home
+            </button>
+        </header>
+
+        <main>
+            <!-- Home View -->
+            <section id="home-view" class="view active">
+                <h1>Virginia DMV<br>Permit Practice</h1>
+                <p>Prepare for your learner's permit with official practice questions. Choose a mode to get started.</p>
+
+                <div class="mode-grid">
+                    <div class="mode-card" onclick="startMode('MOCK')">
+                        <h3>Mock Exam</h3>
+                        <p>Simulates the real test. 10 sign questions (100% required) followed by 20 general questions
+                            (80% required).</p>
+                    </div>
+                    <div class="mode-card" onclick="startMode('ALL')">
+                        <h3>Practice All</h3>
+                        <p>Go through all available questions at your own pace. Perfect for comprehensive study.</p>
+                    </div>
+                    <div class="mode-card" onclick="toggleCategories()">
+                        <h3>By Category</h3>
+                        <p>Focus on specific topics like Signs, Signals, or Safety rules.</p>
+                    </div>
+                </div>
+
+                <div id="category-selection" class="hidden">
+                    <h2 style="margin-top: 40px;">Select Category</h2>
+                    <div class="category-grid" id="category-grid">
+                        <!-- Categories injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz View -->
+            <section id="quiz-view" class="view hidden">
+                <div class="progress-container">
+                    <div class="quiz-meta">
+                        <span id="q-category">Signs</span>
+                        <span>Question <span id="current-q-num">1</span> of <span id="total-q-num">--</span></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <img id="question-image" class="question-image hidden" src="" alt="Traffic Situation">
+                    <h2 class="question-text" id="question-text">Loading...</h2>
+
+                    <div class="options-list" id="options-container">
+                        <!-- Options injected here -->
+                    </div>
+
+                    <div id="feedback-section" class="feedback-section hidden">
+                        <span class="feedback-label">Explanation</span>
+                        <p class="feedback-text" id="feedback-text"></p>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="next-btn" class="btn-primary" disabled>Next Question</button>
+                </div>
+            </section>
+
+            <!-- Results View -->
+            <section id="results-view" class="view hidden">
+                <div class="results-view">
+                    <div class="score-display" id="score-display">--%</div>
+                    <h2 id="result-title">Test Completed</h2>
+                    <p class="result-msg" id="result-message">You answered X out of Y correctly.</p>
+
+                    <div class="action-row">
+                        <button class="btn-outline" onclick="location.reload()">Back to Home</button>
+                        <!DOCTYPE html>
+                        <html lang="en">
+
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Virginia DMV Practice</title>
+                            <link rel="preconnect" href="https://fonts.googleapis.com">
+                            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                            <link
+                                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+                                rel="stylesheet">
+                            <link rel="stylesheet" href="style.css">
+                        </head>
+
+                        <body>
+                            <div class="app-container">
+                                <!-- Header -->
+                                <header>
+                                    <a href="#" class="logo" id="logo-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+                                        </svg>
+                                        VA DMV Practice
+                                    </a>
+                                    <button id="home-btn" class="back-btn hidden">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m12 19-7-7 7-7" />
+                                            <path d="M19 12H5" />
+                                        </svg>
+                                        Back to Home
+                                    </button>
+                                </header>
+
+                                <main>
+                                    <!-- Home View -->
+                                    <section id="home-view" class="view active">
+                                        <h1>Virginia DMV<br>Permit Practice</h1>
+                                        <p>Prepare for your learner's permit with official practice questions. Choose a
+                                            mode to get started.</p>
+
+                                        <div class="mode-grid">
+                                            <div class="mode-card" onclick="startMode('MOCK')">
+                                                <h3>Mock Exam</h3>
+                                                <p>Simulates the real test. 10 sign questions (100% required) followed
+                                                    by 20 general questions
+                                                    (80% required).</p>
+                                            </div>
+                                            <div class="mode-card" onclick="startMode('ALL')">
+                                                <h3>Practice All</h3>
+                                                <p>Go through all available questions at your own pace. Perfect for
+                                                    comprehensive study.</p>
+                                            </div>
+                                            <div class="mode-card" onclick="toggleCategories()">
+                                                <h3>By Category</h3>
+                                                <p>Focus on specific topics like Signs, Signals, or Safety rules.</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="category-selection" class="hidden">
+                                            <h2 style="margin-top: 40px;">Select Category</h2>
+                                            <div class="category-grid" id="category-grid">
+                                                <!-- Categories injected here -->
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <!-- Quiz View -->
+                                    <section id="quiz-view" class="view hidden">
+                                        <div class="progress-container">
+                                            <div class="quiz-meta">
+                                                <span id="q-category">Signs</span>
+                                                <span>Question <span id="current-q-num">1</span> of <span
+                                                        id="total-q-num">--</span></span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="progress-fill"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="question-card">
+                                            <img id="question-image" class="question-image hidden" src=""
+                                                alt="Traffic Situation">
+                                            <h2 class="question-text" id="question-text">Loading...</h2>
+
+                                            <div class="options-list" id="options-container">
+                                                <!-- Options injected here -->
+                                            </div>
+
+                                            <div id="feedback-section" class="feedback-section hidden">
+                                                <span class="feedback-label">Explanation</span>
+                                                <p class="feedback-text" id="feedback-text"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="controls">
+                                            <button id="next-btn" class="btn-primary" disabled>Next Question</button>
+                                        </div>
+                                    </section>
+
+                                    <!-- Results View -->
+                                    <section id="results-view" class="view hidden">
+                                        <div class="results-view">
+                                            <div class="score-display" id="score-display">--%</div>
+                                            <h2 id="result-title">Test Completed</h2>
+                                            <p class="result-msg" id="result-message">You answered X out of Y correctly.
+                                            </p>
+
+                                            <div class="action-row">
+                                                <button class="btn-outline" onclick="location.reload()">Back to
+                                                    Home</button>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </main>
+                            </div>
+
+                            <div id="lightbox" class="lightbox hidden">
+                                <img id="lightbox-image" src="" alt="Enlarged View">
+                            </div>
+                            <script src="questions.js"></script>
+                            <script src="app.js"></script>
+                        </body>
+
+                        </html>
